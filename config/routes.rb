@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # root to: 'homes#top'
+  root to: 'homes#top'
+  get "/homes/about" => "homes#about", as: "about"
   
   devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   
   namespace :public do
     resources :cart_items, :customers, :homes, :items, :order_items, :orders
-  end
+  end 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
